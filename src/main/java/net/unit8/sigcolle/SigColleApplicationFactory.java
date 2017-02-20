@@ -43,6 +43,7 @@ import net.unit8.sigcolle.controller.IndexController;
 import net.unit8.sigcolle.controller.LoginController;
 import net.unit8.sigcolle.controller.RegisterController;
 import net.unit8.sigcolle.controller.SignatureController;
+import net.unit8.sigcolle.controller.NewCampaignController;
 
 import static enkan.util.BeanBuilder.builder;
 import static enkan.util.HttpResponseUtils.RedirectStatusCode.TEMPORARY_REDIRECT;
@@ -75,6 +76,8 @@ public class SigColleApplicationFactory implements ApplicationFactory {
             // authenticated(see middleware configuration)
             r.get("/auth/campaign").to(CampaignController.class, "createForm");
             r.post("/auth/campaign").to(CampaignController.class, "create");
+            r.get("/newcampaign").to(NewCampaignController.class, "newcampaignGet");
+            r.post("/newcampaign").to(NewCampaignController.class, "newcampaign");
         }).compile();
 
         app.use(new DefaultCharsetMiddleware());

@@ -30,6 +30,7 @@ public class SignatureController {
         SignatureDao dao = domaProvider.getDao(SignatureDao.class);
         List<Signature> signatures = dao.selectAllByCampaignId(params.getLong("campaignId"));
         return templateEngine.render("signature/list",
-                "signatures", signatures);
+                "signatures", signatures
+                );
     }
 }

@@ -22,9 +22,17 @@ xmlns:th="http://www.thymeleaf.org">
                     <div class="header" th:text="${message}">Thank you</div>
                 </div>
 
+
+
                 <div class="ui grid">
                     <div class="ten wide column">
-                        <div class="statement" th:utext="${campaign.statement}" ></div>
+                        <div class="statement" th:utext="${campaign.statement}" >
+                        </div>
+                        <!--ここにコメント表示させる-->
+                        <div th:each="comment : ${comments}">
+                            <a th:text="${comment}"></a>
+                        </div>
+
                     </div>
                     <div class="six wide column">
                         <h2>今すぐ賛同</h2>

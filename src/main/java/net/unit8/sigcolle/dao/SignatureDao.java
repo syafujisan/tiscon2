@@ -19,6 +19,9 @@ public interface SignatureDao {
     @Select
     List<Signature> selectAllByCampaignId(Long campaignId);
 
+    @Select
+    List<String> testComment();
+
     @Insert
     int insert(Signature signature);
 }
